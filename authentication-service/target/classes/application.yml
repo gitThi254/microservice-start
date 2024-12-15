@@ -1,0 +1,40 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: auth-service
+resilience4j:
+  circuitbreaker:
+    instances:
+      external:
+        register-health-indicator: true
+        event-consumer-buffer-size: 10
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 5
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+
+  timelimiter:
+    instances:
+      inventory:
+        timeout-duration: 3s
+
+  retry:
+    instances:
+      external:
+        max-attempts: 3
+        wait-duration: 5s
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:password@localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+api.prefix: /api/v1
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  expiration: 86400
