@@ -14,12 +14,11 @@ import java.util.Set;
 public class UserMapper {
     private final PasswordEncoder passwordEncoder;
     public User mapTo(UserReq req ) {
-        return User.builder().username(req.getUsername()).email(req.getEmail()).phone(req.getPhone()).lastName(req.getLastName()).firstName(req.getFirstName()).role("USER").password(passwordEncoder.encode(req.getPassword())).build();
+        return User.builder().username(req.getUsername()).email(req.getEmail()).phone(req.getPhone()).lastName(req.getLastName()).firstName(req.getFirstName()).role(req.getRole() != null ? req.getRole() : "USER").password(passwordEncoder.encode(req.getPassword())).build();
     }
     public UserDto mapToDto(User user) {
         return UserDto.builder()
                 .id(user.getId())
-                .fullName(user.fullName())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .username(user.getUsername())

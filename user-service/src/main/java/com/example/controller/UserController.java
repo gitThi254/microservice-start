@@ -1,29 +1,41 @@
 package com.example.controller;
 
-import com.example.dto.user.LoginDto;
-import com.example.dto.user.LoginReq;
 import com.example.dto.user.UserDto;
 import com.example.dto.user.UserReq;
-import com.example.service.AuthenticationService;
-import lombok.AllArgsConstructor;
+import com.example.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/v1/user")
 @RequiredArgsConstructor
 public class UserController {
-    private final AuthenticationService service;
-    @PostMapping("/register")
-    public ResponseEntity<UserDto> register(@RequestBody UserReq req) {
-        return ResponseEntity.ok(service.register(req));
+    private final IUserService userService;
+    @PostMapping
+    public ResponseEntity<String> saveUser(@RequestBody UserReq request) {
+        userService.save(request);
+        return ResponseEntity.status(201).body("Create user successfully");
     }
-    @PostMapping("/login")
-    public ResponseEntity<LoginDto> login(@RequestBody LoginReq req) {
-        return ResponseEntity.ok(service.login(req.getUsername(), req.getPassword()));
+    @GetMapping
+    public ResponseEntity<List<UserDto>> getAll() {
+        return ResponseEntity.ok(userService.getAll());
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<String> update(@RequestBody UserReq request, @PathVariable String id) {
+        userService.update(request, id);
+        return ResponseEntity.status(200).body("Update user successfully");
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDto> getById(@PathVariable String id) {
+        return ResponseEntity.ok(userService.getById(id));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable String id) {
+        userService.delete(id);
+        return ResponseEntity.status(201).body("Delete user successfully");
+    }
+
 }

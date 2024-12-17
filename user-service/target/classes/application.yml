@@ -1,20 +1,17 @@
-server:
-  port: 8083
+
 spring:
   application:
     name: user-service
   datasource:
-    hikari:
-      auto-commit: false
     url: jdbc:postgresql://localhost:5432/room
     username: postgres
     password: 123456
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: false
-    database: postgresql
+  flyway:
+    baseline-version: 0
+    baseline-on-migrate: true
+    enabled: true
+    baseline-description: "init"
+    locations: classpath:db/migration
 eureka:
   client:
     serviceUrl:
@@ -23,3 +20,5 @@ eureka:
     hostname: localhost
 jwt:
   secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+server:
+  port: 8083

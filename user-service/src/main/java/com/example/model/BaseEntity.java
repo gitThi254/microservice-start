@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 public class BaseEntity {
     @Id
     @UuidGenerator
-    @Column(name="id", unique=true, updatable=false)
+    @Column(name = "id", nullable = false, unique = true, length = 36)
     private String id;
     @JsonIgnore
     @Column(updatable = false, name="create_at_utc")

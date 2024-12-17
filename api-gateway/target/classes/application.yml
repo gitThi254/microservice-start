@@ -9,6 +9,18 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: room-service
+          uri: lb://room-service
+          predicates:
+            - Path=/rooms/**
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/bookings/**
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payment/**
         - id: user-service
           uri: lb://user-service
           predicates:

@@ -1,0 +1,12 @@
+INSERT INTO user_site (id, first_name, last_name, email, username, password, phone, role, create_at_utc, update_at_utc)
+VALUES
+    ('331e1a59-e0ef-4c14-9a14-df87427bf3a8', 'John', 'Doe', 'john.doe@example.com', 'johndoe', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '1234567890', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('b1b2cce1-9e73-45d2-a085-17b812dbe108', 'Jane', 'Smith', 'jane.smith@example.com', 'janesmith', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '0987654321', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('0a6ab56f-ab8f-4c45-b268-c9f60728caf6', 'Alice', 'Johnson', 'alice.johnson@example.com', 'alicejohnson', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '1122334455', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('26d6b1e6-c7e7-45e2-834c-dbba444d1d9a', 'Bob', 'Brown', 'bob.brown@example.com', 'bobbrown', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '5566778899', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('78335a07-0525-4fdc-b2c4-5e9491ccabb4', 'Charlie', 'Davis', 'charlie.davis@example.com', 'charliedavis', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '6677889900', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('17e56383-0bdc-416a-817f-635782f4e826', 'Diana', 'Wilson', 'diana.wilson@example.com', 'dianawilson', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '7788990011', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('c985b33a-b3db-4fb5-b2a8-c5aa9457a0b4', 'Evan', 'Garcia', 'evan.garcia@example.com', 'evangarcia', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '8899001122', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('6000ab32-ac64-4a5e-891c-80d8feab2724', 'Fiona', 'Martinez', 'fiona.martinez@example.com', 'fionamartinez', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '9900112233', 'USER', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('abc615e9-3741-4145-a4d9-d1a388ab8536', 'George', 'Lee', 'george.lee@example.com', 'georgelee', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '1100223344', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    ('b234dd7c-b7c0-4105-9ea0-e2e6a0f86b37', 'Hannah', 'Clark', 'hannah.clark@example.com', 'hannahclark', '$2a$10$7/Ufq9UJ3mVRTQ7m3ZCwJev7jOLVHf7d1g5DKNRhWgbGlyHaAX/5m', '2233445566', 'ADMIN', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

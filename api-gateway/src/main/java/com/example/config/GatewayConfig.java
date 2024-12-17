@@ -14,9 +14,15 @@ public class GatewayConfig {
     @Bean
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("user-service", r -> r.path("/api/v1/address/**")
+                .route("user-service", r -> r.path("/api/v1/user/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://user-service"))
+                .route("booking-service", r -> r.path("/bookings/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://booking-service"))
+                .route("room-service", r -> r.path("/rooms/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://room-service"))
                 .build();
     }
 }
